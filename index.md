@@ -7,9 +7,9 @@
 ### Put your IoT data in your pocket. SensorDeck is your best companion for viewing ThingSpeak channels on your iPhone and iPad.
 
 <p align="center"\>
-<img src="assets/main-ch.png" alt="SensorDeck 主畫面" width="320"/\>
-<img src="assets/main-en.png" alt="SensorDeck Main Screen" width="320"/\>
-</p\>
+<img src="assets/main-ch.png" alt="SensorDeck 主畫面" width="320"/>
+<img src="assets/main-en.png" alt="SensorDeck Main Screen" width="320"/>
+</p>
 
 SensorDeck 讓監控來自 Arduino、ESP8266/ESP32 或樹莓派 (Raspberry Pi) 的感測器數據變得前所未有的簡單。透過簡潔的儀表板，您可以即時掌握所有重要的物聯網專案數據。
 
