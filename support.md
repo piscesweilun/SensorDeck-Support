@@ -1,6 +1,6 @@
-# SensorDeck App 支援頁面
+# SensorDeck 支援頁面
 
-# SensorDeck App Support Page
+# SensorDeck Support Page
 
 ## 歡迎使用 SensorDeck！
 
