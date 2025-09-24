@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SensorDeck - Monitor Your ThingSpeak Data</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+            color: #343a40;
+        }
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        header {
+            background-color: #ffffff;
+            border-bottom: 1px solid #dee2e6;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+            background-color: rgba(255,255,255,0.8);
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        .logo {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #007bff;
+        }
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+        nav li {
+            margin-left: 20px;
+        }
+        nav a {
+            text-decoration: none;
+            color: #495057;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        nav a:hover {
+            color: #007bff;
+        }
+        .hero {
+            text-align: center;
+            padding: 60px 20px;
+            background-color: #ffffff;
+        }
+        .hero h1 {
+            font-size: 2.5em;
+            margin-bottom: 0.5em;
+        }
+        .hero p {
+            font-size: 1.2em;
+            color: #6c757d;
+        }
+        .image-gallery {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+        .image-gallery img {
+            max-width: 320px;
+            width: 100%;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        section {
+            padding: 40px 0;
+        }
+        h2 {
+            text-align: center;
+            font-size: 2em;
+            margin-bottom: 40px;
+            color: #343a40;
+        }
+        .bilingual-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+        }
+        .card {
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            padding: 25px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+        }
+        .bilingual-card {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+        .lang h3 {
+            font-size: 1.2em;
+            margin-top: 0;
+            color: #007bff;
+        }
+        .lang-zh, .lang-en {
+            padding-right: 20px;
+        }
+        .lang-en {
+            color: #495057;
+        }
+        .cta {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 1.3em;
+            font-weight: bold;
+        }
+        .faq-item {
+            margin-bottom: 20px;
+        }
+        .faq-item strong {
+            display: block;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+        .faq-item .answer {
+            padding-left: 20px;
+            border-left: 3px solid #007bff;
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+        }
+        .faq-item ol {
+            padding-left: 20px;
+        }
+        footer {
+            text-align: center;
+            padding: 30px 20px;
+            background-color: #343a40;
+            color: #f8f9fa;
+        }
+        footer a {
+            color: #00aaff;
+            text-decoration: none;
+        }
+        @media (min-width: 768px) {
+            .bilingual-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .bilingual-card {
+                grid-template-columns: 1fr 1fr;
+                border-bottom: none;
+                padding-bottom: 0;
+            }
+            .lang-zh {
+                border-right: 1px solid #dee2e6;
+            }
+            .lang-en {
+                padding-left: 20px;
+                padding-right: 0;
+            }
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <div class="logo">SensorDeck</div>
+            <ul>
+                <li><a href="#features">Features / 核心功能</a></li>
+                <li><a href="#faq">FAQ / 常見問題</a></li>
+                <li><a href="#contact">Contact / 聯絡我們</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h1>SensorDeck: 隨時隨地監控您的 ThingSpeak 數據</h1>
+                <h1>SensorDeck: Monitor Your ThingSpeak Data Anywhere, Anytime</h1>
+                <p>將您的物聯網數據放入口袋。SensorDeck 是您在 iPhone 和 iPad 上查看 ThingSpeak 頻道的最佳夥伴。</p>
+                <p>Put your IoT data in your pocket. SensorDeck is your best companion for viewing ThingSpeak channels on your iPhone and iPad.</p>
+                <div class="image-gallery">
+                    <img src="https://raw.githubusercontent.com/PiscesWeilun/SensorDeck/main/assets/main-ch.png" alt="SensorDeck 主畫面">
+                    <img src="https://raw.githubusercontent.com/PiscesWeilun/SensorDeck/main/assets/main-en.png" alt="SensorDeck Main Screen">
+                </div>
+            </div>
+        </section>
+
+        <section id="features">
+            <div class="container">
+                <h2>核心功能 / Core Features</h2>
+                <div class="bilingual-grid">
+                    <div class="card bilingual-card">
+                        <div class="lang lang-zh">
+                            <h3>⭐ 直觀的儀表板</h3>
+                            <p>一目了然地查看您所有 ThingSpeak 頻道的最新數據。</p>
+                        </div>
+                        <div class="lang lang-en">
+                            <h3>⭐ Intuitive Dashboard</h3>
+                            <p>View the latest data from all your ThingSpeak channels at a glance.</p>
+                        </div>
+                    </div>
+                    <div class="card bilingual-card">
+                        <div class="lang lang-zh">
+                            <h3>📊 互動式圖表</h3>
+                            <p>縮放、平移並檢視特定時間點的數據。我們為每個數據欄位提供清晰的視覺化圖表。</p>
+                        </div>
+                        <div class="lang lang-en">
+                            <h3>📊 Interactive Charts</h3>
+                            <p>Zoom, pan, and inspect data at specific points in time. We provide clear visualizations for each data field.</p>
+                        </div>
+                    </div>
+                    <div class="card bilingual-card">
+                        <div class="lang lang-zh">
+                            <h3>⌛ 彈性的時間區間</h3>
+                            <p>快速切換不同的時間範圍，從最近 10 分鐘到過去一週的數據都能輕鬆掌握。</p>
+                        </div>
+                        <div class="lang lang-en">
+                            <h3>⌛ Flexible Time Ranges</h3>
+                            <p>Quickly switch between different time frames, from the last 10 minutes to the past week, with ease.</p>
+                        </div>
+                    </div>
+                    <div class="card bilingual-card">
+                        <div class="lang lang-zh">
+                            <h3>📝 詳細數據統計</h3>
+                            <p>自動計算每個感測器在選定時間範圍內的最大值、最小值和平均值，幫助您快速洞察數據趨勢。</p>
+                        </div>
+                        <div class="lang lang-en">
+                            <h3>📝 Detailed Data Statistics</h3>
+                            <p>Automatically calculates the maximum, minimum, and average values for each sensor within the selected time range to help you quickly identify data trends.</p>
+                        </div>
+                    </div>
+                    <div class="card bilingual-card">
+                        <div class="lang lang-zh">
+                            <h3>🔑 多頻道支援</h3>
+                            <p>透過一次性購買解鎖進階版，即可新增並管理無限數量的頻道，並永久移除廣告。</p>
+                        </div>
+                        <div class="lang lang-en">
+                            <h3>🔑 Multi-Channel Support</h3>
+                            <p>Unlock the premium version with a one-time purchase to add and manage an unlimited number of channels and permanently remove ads.</p>
+                        </div>
+                    </div>
+                    <div class="card bilingual-card">
+                        <div class="lang lang-zh">
+                            <h3>💾 強大的資料管理</h3>
+                            <p>進階版使用者可以將數據快取至本機以供離線查看，並能將所有歷史數據匯出為 CSV 檔案，以便進行後續分析。</p>
+                        </div>
+                        <div class="lang lang-en">
+                            <h3>💾 Powerful Data Management</h3>
+                            <p>Premium users can cache data locally for offline viewing and export all historical data as a CSV file for further analysis.</p>
+                        </div>
+                    </div>
+                </div>
+                <p class="cta">立即下載，開始監控您的物聯網世界！<br>Download now and start monitoring your IoT world!</p>
+            </div>
+        </section>
+
+        <section id="faq" style="background-color: #ffffff;">
+            <div class="container">
+                <h2>常見問題 / Frequently Asked Questions (FAQ)</h2>
+
+                <div class="card faq-item">
+                    <strong>Q1: 如何新增我的第一個 ThingSpeak 頻道？ / How do I add my first ThingSpeak channel?</strong>
+                    <div class="bilingual-card answer">
+                        <div class="lang lang-zh">
+                            <ol>
+                                <li>在 App 主畫面的「管理頻道」區塊，點擊展開。</li>
+                                <li>在「頻道 ID」欄位中輸入您的 ThingSpeak Channel ID。</li>
+                                <li>如果您的頻道是私有的，請務必在「Read API Key」欄位中輸入對應的 API 金鑰。如果頻道是公開的，此欄位可留空。</li>
+                                <li>點擊「新增頻道」按鈕。App 會自動抓取頻道的中繼資料並將其新增到您的儀表板。</li>
+                            </ol>
+                        </div>
+                        <div class="lang lang-en">
+                            <ol>
+                                <li>On the app's main screen, tap to expand the "Manage Channels" section.</li>
+                                <li>Enter your ThingSpeak Channel ID in the "Channel ID" field.</li>
+                                <li>If your channel is private, be sure to enter the corresponding API key in the "Read API Key" field. If the channel is public, this field can be left blank.</li>
+                                <li>Click the "Add Channel" button. The app will automatically fetch the channel's metadata and add it to your dashboard.</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card faq-item">
+                    <strong>Q2: 為什麼我無法新增第二個頻道？ / Why can't I add a second channel?</strong>
+                    <div class="bilingual-card answer">
+                        <div class="lang lang-zh">
+                            <p>SensorDeck 的免費版本包含廣告，並限制使用者只能新增一個頻道。這是為了讓使用者可以充分體驗 App 的核心功能。若要新增多個頻道並移除廣告，您可以透過一次性購買來解鎖進階版功能。</p>
+                        </div>
+                        <div class="lang lang-en">
+                            <p>The free version of SensorDeck includes ads and limits users to adding only one channel. This is to allow users to fully experience the app's core features. To add multiple channels and remove ads, you can unlock the premium features through a one-time purchase.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card faq-item">
+                    <strong>Q3: 什麼是「清除快取」？我什麼時候需要使用它？ / What is "Clear Cache"? When should I use it?</strong>
+                    <div class="bilingual-card answer">
+                        <div class="lang lang-zh">
+                            <p>為了加快載入速度並節省您的網路流量，SensorDeck 會將您瀏覽過的數據暫時儲存在您的裝置上，這就是「快取」。一般情況下您不需要手動管理。但如果您懷疑數據沒有正確更新，或想釋放儲存空間，可以至「資料管理」區塊使用「清除快取」功能。請注意，這會刪除所有已下載的圖表數據，下次檢視時需要重新從網路下載。</p>
+                        </div>
+                        <div class="lang lang-en">
+                            <p>To speed up loading times and save your network data, SensorDeck temporarily stores the data you've viewed on your device—this is the "cache." Normally, you don't need to manage it manually. However, if you suspect the data is not updating correctly or you want to free up storage space, you can use the "Clear Cache" function in the "Data Management" section. Please note that this will delete all downloaded chart data, which will need to be re-downloaded from the network the next time you view it.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card faq-item">
+                    <strong>Q4: 我可以將數據匯出嗎？ / Can I export my data?</strong>
+                    <div class="bilingual-card answer">
+                        <div class="lang lang-zh">
+                            <p>可以！解鎖進階版功能後，您可以使用「匯出 CSV」功能。這會將您所有頻道中已快取的數據打包成一個 `.csv` 檔案，方便您在電腦上進行更深入的分析或備份。</p>
+                        </div>
+                        <div class="lang lang-en">
+                            <p>Yes! After unlocking the premium features, you can use the "Export CSV" function. This will package the cached data from all your channels into a `.csv` file, making it convenient for you to perform more in-depth analysis or backups on your computer.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card faq-item">
+                    <strong>Q5: 編輯頻道時，可以更改哪些資訊？ / When editing a channel, what information can be changed?</strong>
+                    <div class="bilingual-card answer">
+                        <div class="lang lang-zh">
+                            <p>您可以修改頻道的 ID、API Key、以及在 App 內顯示的自訂「頻道名稱」和各個「欄位名稱」。這不會影響您在 ThingSpeak 網站上的原始設定，僅作為您在 App 中方便辨識的別名。</p>
+                        </div>
+                        <div class="lang lang-en">
+                            <p>You can modify the channel's ID, API Key, and the custom "Channel Name" and individual "Field Names" displayed within the app. This does not affect your original settings on the ThingSpeak website; it only serves as an alias for easy identification within the app.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer id="contact">
+        <div class="container">
+            <h2>聯絡我們 / Contact Us</h2>
+            <p>如果您有任何問題或建議，歡迎隨時透過電子郵件與我們聯絡。<br>If you have any questions or suggestions, please feel free to contact us via email.</p>
+            <p><a href="mailto:piscesweilun.studio@gmail.com">piscesweilun.studio@gmail.com</a></p>
+            <p>&copy; 2025 SensorDeck. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
