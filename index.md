@@ -6,7 +6,7 @@
 
 ### Put your IoT data in your pocket. SensorDeck is your best companion for viewing ThingSpeak channels on your iPhone and iPad.
 
-<p align="center"\>
+<p align="center">
 <img src="assets/main-ch.png" alt="SensorDeck 主畫面" width="320"/>
 <img src="assets/main-en.png" alt="SensorDeck Main Screen" width="320"/>
 </p>
